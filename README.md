@@ -18,6 +18,7 @@ The basic stack includes (amongst other things):
 
 To create a new rails project (called blog in this case):
 
+```
 $ psql postgres
   # create user blog with password '' CREATEDB;
   # \q
@@ -26,6 +27,7 @@ $ gem install rails --no-ri --no-rdoc
 $ rails new blog -d postgresql --skip-test-unit -m rails_templates/andy.rb
 $ cd blog
 $ rake
+```
 
 This should result in one passing spec.
 
