@@ -1,12 +1,3 @@
-# $ psql postgres
-#   # create user blog with password '' CREATEDB;
-#   # \q
-# $ rvm gemset use blog --create
-# $ gem install rails --no-ri --no-rdoc
-# $ rails new blog -d postgresql --skip-test-unit -m rails_templates/andy.rb
-# $ cd blog
-# $ rake
-
 def erb_to_haml(erb_file)
   haml_file = erb_file.gsub(/erb/, 'haml')
   run "html2haml #{erb_file} #{haml_file}"
