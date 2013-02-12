@@ -63,9 +63,10 @@ $ rake
 CODE
 
 erb_to_haml "app/views/layouts/application.html.erb"
-remove_file "app/assets/javascripts/pages.js.coffee"
 append_file "app/assets/javascripts/application.js", "//= require bootstrap"
+remove_file "app/assets/javascripts/pages.js.coffee"
 remove_file "app/assets/stylesheets/application.css"
+remove_file "spec/spec_helper.rb"
 remove_dir  "spec/helpers"
 remove_dir  "spec/views"
 remove_dir  "spec/controllers"
@@ -123,10 +124,11 @@ RSpec.configure do |config|
 end
 CODE
 
+gsub_file 'config/application.rb', /config.active_record.whitelist_attributes = true/, 'config.active_record.whitelist_attributes = false # Using strong_parameters'
 application <<-CODE
 config.generators do |g|
-  g.fixture_replacement :factory_girl
-end
+      g.fixture_replacement :factory_girl
+    end
 CODE
 
 file "spec/features/pages_spec.rb", <<-CODE
@@ -149,3 +151,8 @@ append_file ".gitignore", "config/database.yml"
 run "cp config/database.yml config/example.database.yml"
 git add: ".", commit: "-m 'initial commit'"
 
+say <<-eos
+*******************************************
+* Rails application created successfully! *
+*******************************************
+eos
