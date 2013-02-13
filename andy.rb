@@ -21,6 +21,9 @@ gem_group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'letter_opener'
+end
+
+gem_group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
